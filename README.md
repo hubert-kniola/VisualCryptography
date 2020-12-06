@@ -8,4 +8,4 @@
     
 ### Decryption
 
-    $ python crypto.py %filename.png% %B/C/L%
+    $ python decrypto.py %filename.png% %B/C/L%

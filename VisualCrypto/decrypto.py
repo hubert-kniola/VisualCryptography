@@ -25,8 +25,8 @@ if foo == 'B':
 elif foo == 'L':
     img = img.convert('L')
 elif foo == 'C':
-    enh = ImageEnhance.Contrast(img)
-    enh.enhance(1.3).show("30% more contrast")
+    enhancer = ImageEnhance.Contrast(img)
+    img.enhance(1.3).show("30% more contrast")
 else:
     print('Give 2 arguments')
 

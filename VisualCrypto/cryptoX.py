@@ -24,12 +24,12 @@ out_filename_2 = file + '_2.png'
 
 img = img.convert('1')
 
-print("Image size: {}".format(img.size))
+print('Image size: {}'.format(img.size))
 
 width = img.size[0] * s
 height = img.size[1] * s
 
-print("{} x {}".format(width, height))
+print('Image resize: {} x {}'.format(width, height))
 
 output_image_1 = Image.new('1', (width, height))
 output_image_2 = Image.new('1', (width, height))
@@ -38,6 +38,7 @@ draw_B = ImageDraw.Draw(output_image_2)
 
 patterns = ((1, 1, 0, 0), (1, 0, 1, 0), (1, 0, 0, 1), (0, 1, 1, 0), (0, 1, 0, 1), (0, 0, 1, 1))
 
+print('Encrypting...')
 for x in xrange(0, int(width / s)):
     for y in xrange(0, int(height / s)):
         pixel = img.getpixel((x, y))

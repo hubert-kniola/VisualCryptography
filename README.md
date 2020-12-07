@@ -2,10 +2,7 @@
 
 ## Usage
 
-### Encryption
+### Encryption/Decryption
 
-    $ python crypto.py %filename.png%
+    $ python visual_crypto.py %filename.bmp%
     
-### Decryption
-
-    $ python decrypto.py %filename.png% %B/C/L%

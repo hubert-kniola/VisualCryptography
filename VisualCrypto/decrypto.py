@@ -13,27 +13,16 @@ if not os.path.isfile(infile):
     exit()
 
 file, e = os.path.splitext(infile)
-input_file_1 = file + '_1.png'
-input_file_2 = file + '_2.png'
+input_file_1 = file + '_1.bmp'
+input_file_2 = file + '_2.bmp'
 
-img = Image.open(input_file_1)
+img = Image.open(input_file_2)
 print("Image size: {}".format(img.size))
 
-if foo == 'B':
-    enhancer = ImageEnhance.Brightness(img)
-    img = enhancer.enhance(0.8)
-elif foo == 'L':
-    img = img.convert('L')
-elif foo == 'C':
-    enhancer = ImageEnhance.Contrast(img)
-    img.enhance(1.3).show("30% more contrast")
-else:
-    print('Give 2 arguments')
-
-background = Image.open(input_file_2)
+background = Image.open(input_file_1)
 
 background.paste(img, (0, 0), img)
-background.save('decrypt-' + infile, "PNG")
+background.save('decrypt-' + infile, "JPEG")
 background.show()
 print('Done.')
 

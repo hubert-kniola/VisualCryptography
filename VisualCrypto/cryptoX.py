@@ -7,7 +7,7 @@ random = SystemRandom()
 xrange = range
 
 if len(sys.argv) != 3:
-    print('Give one argument - the name of the file to be encrypted')
+    print('Give two arguments - the name of the file to be encrypted and new size of image')
     exit()
 infile = str(sys.argv[1])
 s = int(sys.argv[2])
@@ -44,20 +44,20 @@ for x in xrange(0, int(width / s)):
         pixel = img.getpixel((x, y))
         pat = random.choice(patterns)
 
-        draw_A.point((x * s, y * s), pat[0])
-        draw_A.point((x * s + 1, y * s), pat[1])
-        draw_A.point((x * s, y * s + 1), pat[2])
-        draw_A.point((x * s + 1, y * s + 1), pat[3])
+        draw_A.point((x * s, y * s), 1 - pat[0])
+        draw_A.point((x * s + 1, y * s), 1 - pat[1])
+        draw_A.point((x * s, y * s + 1), 1 - pat[2])
+        draw_A.point((x * s + 1, y * s + 1), 1 - pat[3])
         if pixel == 0:
-            draw_B.point((x * s, y * s), 1 - pat[0])
-            draw_B.point((x * s + 1, y * s), 1 - pat[1])
-            draw_B.point((x * s, y * s + 1), 1 - pat[2])
-            draw_B.point((x * s + 1, y * s + 1), 1 - pat[3])
-        else:
             draw_B.point((x * s, y * s), pat[0])
             draw_B.point((x * s + 1, y * s), pat[1])
             draw_B.point((x * s, y * s + 1), pat[2])
             draw_B.point((x * s + 1, y * s + 1), pat[3])
+        else:
+            draw_B.point((x * s, y * s), 1 - pat[0])
+            draw_B.point((x * s + 1, y * s), 1 - pat[1])
+            draw_B.point((x * s, y * s + 1), 1 - pat[2])
+            draw_B.point((x * s + 1, y * s + 1), 1 - pat[3])
 
 output_image_1.save(out_filename_1, 'PNG')
 output_image_2.save(out_filename_2, 'PNG')

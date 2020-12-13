@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw
+from PIL import Image
 import os
 import sys
 from random import choice
@@ -22,7 +22,7 @@ def load_image(infile):
     return Image.open(infile)
 
 
-def load_bitmap(infile):
+def load_bitmap(file):
     input_file_1 = file + '_1.bmp'
     input_file_2 = file + '_2.bmp'
     return Image.open(input_file_1), Image.open(input_file_2)
@@ -84,12 +84,13 @@ def decryption(image1, image2) -> Image:
 
     width, height = image1.size
     merged = np.ndarray((height, width))
-    share1, share2 = np.array(image1), np.array(image2)
+    array1, array2 = np.array(image1), np.array(image2)
+    print(' ')
     print('Decrypting...')
 
     for x in range(height):
         for y in range(width):
-            if share1[x, y] == 255 and share2[x, y] == 255:
+            if array1[x, y] == 255 and array2[x, y] == 255:
                 merged[x, y] = 255
             else:
                 merged[x, y] = 0
